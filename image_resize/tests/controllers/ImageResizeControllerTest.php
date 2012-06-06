@@ -15,6 +15,7 @@ class ImageResizeControllerTest extends PHPUnitTestController {
         $files = array(
             $outputDir."100x100/image.png",
             $outputDir."100/image.png",
+            $outputDir."1/image.png",
         );
 
         foreach ($files as $file) {

@@ -93,6 +93,22 @@ class ImageResizeControllerTest extends PHPUnitTestController {
         $this->assertBodyHasContents("Invalid dimensions");
     }
 
+    public function testTooLargeWidthReturnsCorrectError() {
+        $this->request->dispatch("/uploads/scaled/5000/image.png");
+        
+        $this->assertResponseCode(404);
+        $this->assertHeader("Content-Type", "text/plain");
+        $this->assertBodyHasContents("Invalid dimensions");
+    }
+
+    public function testTooLargeHeightReturnsCorrectError() {
+        $this->request->dispatch("/uploads/scaled/10x5000/image.png");
+        
+        $this->assertResponseCode(404);
+        $this->assertHeader("Content-Type", "text/plain");
+        $this->assertBodyHasContents("Invalid dimensions");
+    }
+
     public function testZeroComputedHeightReturnsCorrectError() {
         $this->request->dispatch("/uploads/scaled/1/image.png");
         

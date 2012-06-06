@@ -26,7 +26,7 @@ class ImageResizeController extends Controller {
             return;
         }
 
-        $targetPath = Settings::getValue("uploads", "scaled").$width;
+        $targetPath = Settings::getValue("images", "scaled").$width;
         if ($height !== null) {
             $targetPath .= "x".$height;
         }

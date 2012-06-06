@@ -9,7 +9,7 @@ class ImageResizeControllerTest extends PHPUnitTestController {
 
         $this->originalSettings = $settings = Settings::getSettings();
         $settings["uploads"]["files"]  = $inputDir;
-        $settings["uploads"]["scaled"] = $outputDir;
+        $settings["images"]["scaled"] = $outputDir;
         Settings::setFromArray($settings);
 
         $files = array(
